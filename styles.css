@@ -1,0 +1,1021 @@
+/* ==========================================================================
+   STYLESHEET MAP  (search for the number, e.g. "5. ")
+   --------------------------------------------------------------------------
+   0. Variables, reset & base      5. Shared components (labels, frames, cards)
+   1. Header social icons          6. ABOUT ME sections, in page order:
+   2. Folder, tabs & paper             6a Summary  6b Education  6c Experience
+   3. Notebook-paper background        6d Projects 6e Certifications
+   4. Bookmarks (side tabs)        7. MY ART: gallery + lightbox
+                                   8. Back-to-top, footer, focus outline
+                                   9. Responsive (+ reduced motion)
+   10. Paper-texture page background (credit inside)
+   ========================================================================== */
+
+/* ==========================================================================
+   0. VARIABLES, RESET & BASE
+   ========================================================================== */
+:root {
+  --bg-body: #fcfcfc;
+  --color-purple: #957fac;
+  --color-purple-dark: #7a6592;
+  --color-maroon: #8f4a58;
+  --bg-paper: #f5f1e9;
+  --bg-card: #fff;
+  --color-green: #a5ab80;
+  --color-gold: #d9b45c;
+  --color-red: #aa5a5a;
+  --color-pink: #f0bfd8;
+  --color-blue: #9bb5d1;
+  --color-text: #333;
+  --font-title: "Poppins", sans-serif;
+  --font-body: "Fredoka", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg-body);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.4;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+ul {
+  list-style: disc;
+  padding-left: 18px;
+}
+h2,
+h3,
+b,
+.tab,
+.bookmarks a {
+  font-family: var(--font-title);
+}
+.ph {
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   1. HEADER SOCIAL ICONS
+   <header class="socials"> - purple circles top-right
+   ========================================================================== */
+.socials {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 22px 16px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font: 700 1.4rem/1 var(--font-title);
+  text-decoration: none;
+  transition: 0.25s;
+}
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+.icon:hover {
+  transform: translateY(-3px) scale(1.12);
+  background: var(--color-maroon);
+}
+
+/* ==========================================================================
+   2. FOLDER, TABS & PAPER
+   main.folder holds the About Me / My Art tabs and .folder-body
+   ========================================================================== */
+.folder {
+  max-width: 940px;
+  margin: 28px auto 0;
+  padding: 0 16px;
+}
+/* Tabs: the row has a FIXED height, so switching/hovering never shifts the folder.
+   Tabs only grow upward (padding-top), keeping their bottom edge glued to the folder. */
+.tabs {
+  --tab-extra: 44px; /* padding of an active tab (30 top + 14 bottom) */
+  display: flex;
+  align-items: flex-end;
+  font-size: clamp(1.1rem, 3.4vw, 1.7rem);
+  height: calc(1.4em + var(--tab-extra));
+}
+.tab {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  cursor: pointer;
+  color: #ffffffcc;
+  font: 700 1em/1.4 var(--font-title);
+  padding: 16px 36px 14px;
+  border-radius: 34px 34px 0 0;
+  margin-left: -28px;
+  background: var(--color-purple);
+  transition:
+    padding 0.25s,
+    color 0.25s,
+    filter 0.25s;
+}
+.tab:first-child {
+  margin-left: 0;
+}
+/* Gradient layer of an inactive tab - fades out smoothly when the tab becomes active */
+.tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-purple), var(--color-maroon));
+  transition: opacity 0.25s;
+}
+.tab:nth-child(2)::before {
+  background: linear-gradient(90deg, var(--color-maroon), var(--color-purple));
+}
+.tab:not(.active):hover {
+  padding-top: 22px; /* rises upward, stays attached to the folder */
+  filter: brightness(1.12);
+}
+.tab.active {
+  z-index: 2;
+  color: #fff;
+  padding-top: 30px;
+}
+.tab.active::before {
+  opacity: 0;
+}
+
+/* folder-body: purple folder behind .paper, bookmarks in the right column */
+.folder-body {
+  display: grid;
+  grid-template-columns: 1fr 58px;
+  align-items: start;
+}
+.folder-body::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  background: var(--color-purple);
+  border-radius: 0 70px 60px 60px;
+  box-shadow: 0 16px 24px #0003;
+}
+/* 3. Notebook-paper look: cream sheet with ruled lines behind every section */
+.paper {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 90px 0 26px 20px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 46px, #cfd5d6 46px 48px)
+      14px 0 / calc(100% - 28px) 100% no-repeat,
+    var(--bg-paper);
+  border-radius: 40px;
+  padding: 26px 24px 44px;
+}
+.view {
+  display: grid;
+  gap: 56px;
+}
+section {
+  scroll-margin-top: 64px;
+}
+
+/* ==========================================================================
+   4. BOOKMARKS (side tabs)
+   Attached to the paper edge; they grow outward on hover
+   ========================================================================== */
+.bookmarks {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: 110px;
+  margin: 130px 0 0 -1px;
+}
+.bookmarks ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.bookmarks a {
+  width: 100%;
+  writing-mode: vertical-rl;
+  min-height: 120px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 0 26px 26px 0;
+  transition: 0.25s;
+}
+.bookmarks a:hover,
+.bookmarks a:focus-visible {
+  width: calc(100% + 14px);
+  filter: brightness(1.1);
+  box-shadow: 4px 4px 10px #0002;
+}
+.c-sage {
+  background: var(--color-green);
+}
+.c-gold {
+  background: var(--color-gold);
+}
+.c-rust {
+  background: var(--color-red);
+}
+.c-pink {
+  background: var(--color-pink);
+}
+.c-blue {
+  background: var(--color-blue);
+}
+
+/* ==========================================================================
+   5. SHARED COMPONENTS
+   Used by several sections: labels, frames, cards, avatars, lists, pills
+   ========================================================================== */
+/* Section label ("bubble" heading) */
+.label {
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 1;
+  display: table;
+  margin: 0 0 -18px 30px;
+  background: var(--color-purple);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 4px 26px;
+  border-radius: 22px;
+}
+.label-center {
+  padding: 6px 44px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+/* Frame = purple panel behind a section (label straddles its top edge) */
+.frame {
+  background: var(--color-purple);
+  border-radius: 26px;
+  padding: 34px 16px 16px;
+}
+.frame > .label {
+  margin: -53px 0 15px 30px;
+}
+.frame > .label-center {
+  margin: -53px auto 15px;
+}
+/* Card = white rounded box */
+.card {
+  background: var(--bg-card);
+  border-radius: 26px;
+  padding: 26px;
+  transition: 0.3s;
+}
+.card:hover,
+.job:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px #957fac66;
+}
+/* Card titles + muted purple text */
+h3 {
+  color: var(--color-purple);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.muted {
+  color: var(--color-purple);
+}
+/* Round images + list layouts (.entry rows used by Education & Certs) */
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+.avatar:hover {
+  transform: rotate(14deg) scale(1.06);
+}
+.stack,
+.stack-gap {
+  display: grid;
+  gap: 22px;
+}
+.stack-gap {
+  gap: 20px;
+}
+.entry {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+/* List text sizes (.dots = education details, .bullets = experience/projects) */
+.dots,
+.bullets {
+  font-size: 0.92rem;
+}
+.dots li::marker {
+  color: var(--color-purple);
+}
+
+/* --- Pills (tags) - used in Experience, Projects, Certs --- */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 8px;
+}
+.pills span {
+  background: var(--color-pink);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 2px 14px;
+  border-radius: 20px;
+}
+.pills.small span {
+  font-size: 0.72rem;
+}
+
+/* ==========================================================================
+   6a. SECTION: SUMMARY  (#summary)
+   ========================================================================== */
+/* Photo column (~1/3) + text column; the photo stretches to the text's height */
+.intro {
+  display: grid;
+  grid-template-columns: 32% 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+.avatar-sq {
+  width: 100%;
+  height: 0; /* the image's own size must not set the row height... */
+  min-height: 100%; /* ...it just fills the height of the text column */
+  border-radius: 22px;
+  transition: 0.3s;
+}
+.avatar-sq:hover {
+  transform: scale(1.04);
+}
+/* NAME: / EMAIL: rows - big purple label, value lined up in a second column */
+.field {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  align-items: baseline;
+  border-bottom: 2px solid var(--color-purple);
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+}
+.field b {
+  color: var(--color-purple);
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+.field span {
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+.bio {
+  font-size: 0.95rem;
+}
+.bio em {
+  font-style: normal;
+  color: var(--color-purple);
+}
+
+/* ==========================================================================
+   6b. SECTION: EDUCATION  (#education)
+   White card with a purple bar underneath + timeline list
+   ========================================================================== */
+#education.frame {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+#education > .label {
+  margin: 0 0 -22px 36px;
+  padding: 6px 40px;
+  font-size: 1.5rem;
+}
+#education .card {
+  padding: 46px 36px 40px;
+  border-radius: 28px;
+  box-shadow: 0 22px 0 var(--color-purple);
+}
+#education .card:hover {
+  box-shadow: 0 22px 0 var(--color-purple);
+}
+#education .stack {
+  gap: 30px;
+}
+#education .entry {
+  grid-template-columns: 150px 1fr;
+  gap: 32px;
+}
+#education .avatar {
+  width: 150px;
+  height: 150px;
+  background: #d9d9d9;
+}
+#education h3 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+#education .dots {
+  position: relative;
+  list-style: none;
+  padding-left: 22px;
+  font-size: 1rem;
+}
+#education .dots::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0.7em;
+  bottom: 0.7em;
+  width: 2px;
+  background: var(--color-purple);
+}
+#education .dots li {
+  position: relative;
+}
+#education .dots li:first-child {
+  margin-bottom: 16px;
+}
+#education .dots li:last-child::after {
+  content: "";
+  position: absolute;
+  left: -22px;
+  bottom: calc(0.7em - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-purple);
+}
+#education .dots li::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: calc(0.7em - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-purple);
+}
+
+/* ==========================================================================
+   6c. SECTION: EXPERIENCE  (#experience)
+   .job cards with the purple strip, circle and star (.spark)
+   ========================================================================== */
+#experience .stack-gap {
+  gap: 24px;
+}
+/* "Experience" bubble: bigger, nudged in from the card edge */
+#experience > .label {
+  margin-left: 42px;
+  padding: 5px 36px;
+  font-size: 1.5rem;
+}
+/* Card = [big logo] [text] [purple strip]; --c = diameter of the circle on the strip */
+.job {
+  --c: 116px;
+  display: grid;
+  grid-template-columns: 188px 1fr 53px;
+  gap: 22px;
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: 26px;
+  overflow: hidden;
+  padding: 36px 0 22px 14px;
+  transition: 0.3s;
+}
+.job .avatar {
+  width: 188px;
+  height: 188px;
+}
+.job > div {
+  padding-right: 34px;
+}
+/* Text sizes */
+.job h3 {
+  font-size: 1.9rem;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.job .pills {
+  gap: 18px;
+  margin: 6px 0 14px;
+}
+.job .pills span {
+  font-size: 0.95rem;
+  padding: 5px 26px;
+}
+.job .bullets {
+  list-style: none;
+  padding-left: 14px;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.job .bullets li {
+  position: relative;
+}
+.job .bullets li::before {
+  content: "\2022";
+  position: absolute;
+  left: -14px;
+  font-size: 0.7em;
+  color: #666;
+}
+.spark {
+  position: relative;
+  align-self: stretch;
+  margin: -36px 0 -22px;
+  background: var(--color-purple);
+}
+.spark::before,
+.spark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+}
+.spark::before {
+  left: calc(var(--c) / -2 - 3px);
+  width: var(--c);
+  height: var(--c);
+  margin-top: calc(var(--c) / -2);
+  border-radius: 50%;
+  background: var(--color-purple);
+}
+.spark::after {
+  left: calc(var(--c) * -0.29 - 3px);
+  width: calc(var(--c) * 0.58);
+  height: calc(var(--c) * 0.58);
+  margin-top: calc(var(--c) * -0.29);
+  background: #fff;
+  clip-path: polygon(
+    50% 0,
+    60% 40%,
+    100% 50%,
+    60% 60%,
+    50% 100%,
+    40% 60%,
+    0 50%,
+    40% 40%
+  );
+  transition: transform 0.5s;
+}
+.job:hover .spark::after {
+  transform: rotate(90deg) scale(1.15);
+}
+
+/* ==========================================================================
+   6d. SECTION: PROJECTS  (#projects)
+   Folder-tab label, two-column cards, flush "Deployed" badge
+   ========================================================================== */
+
+/* --- Grid + card base --- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px;
+  font-size: 0.85rem;
+}
+.project h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.project .bullets {
+  flex: 1;
+  margin-bottom: 10px;
+  font-size: inherit;
+}
+.badge {
+  align-self: flex-start;
+  background: var(--color-green);
+  color: #fff;
+  font: 500 0.72rem var(--font-body);
+  padding: 2px 12px;
+  border-radius: 12px;
+}
+.link {
+  align-self: flex-start;
+  color: var(--color-text);
+  font-weight: 500;
+  text-underline-offset: 5px;
+  transition: 0.25s;
+}
+.link:hover {
+  color: var(--color-purple);
+  transform: translateX(6px);
+}
+
+/* --- Folder-tab label, card layout, badge, bullets, pills + link --- */
+#projects.frame {
+  position: relative;
+  margin-top: 42px;
+  padding: 30px 20px;
+  border-radius: 0 34px 34px 34px;
+}
+#projects > .label {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 0 76px 0 56px;
+  font-size: 1.6rem;
+  border-radius: 42px 42px 0 0;
+}
+#projects .grid-2 {
+  gap: 22px;
+}
+.project {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px 8px;
+  padding: 30px 22px 26px 26px;
+  border-radius: 38px;
+}
+.project h3 {
+  flex: 0 0 100%;
+  font-size: 1.85rem;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.project .badge {
+  align-self: flex-start;
+  margin: 6px -22px 0 0;
+  padding: 3px 16px 3px 18px;
+  font-size: 0.85rem;
+  border-radius: 20px 0 0 20px;
+}
+.project .bullets {
+  flex: 0 0 100%;
+  list-style: none;
+  padding-left: 14px;
+  margin-bottom: 14px;
+}
+.project .bullets li {
+  position: relative;
+}
+.project .bullets li::before {
+  content: "\2022";
+  position: absolute;
+  left: -14px;
+  font-size: 0.7em;
+  color: #666;
+}
+.project .pills {
+  margin: 0;
+}
+.project .link {
+  margin-left: 10px;
+  font-size: 0.95rem;
+  text-decoration-color: var(--color-purple);
+  text-decoration-thickness: 3px;
+}
+
+/* ==========================================================================
+   6e. SECTION: CERTIFICATIONS  (#certs)
+   ========================================================================== */
+.certs {
+  padding-top: 36px;
+  border-bottom: 18px solid var(--color-purple);
+  border-radius: 26px 26px 30px 30px;
+}
+.certs h3 {
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   7. MY ART: GALLERY + LIGHTBOX
+   ========================================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+.gallery figure {
+  cursor: zoom-in;
+  background: #d9d9d9;
+  aspect-ratio: 1;
+  overflow: hidden;
+  scroll-margin-top: 30px;
+}
+.gallery figure.wide {
+  grid-column: span 2;
+  aspect-ratio: 2.05;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+}
+.gallery figure:hover img {
+  transform: scale(1.06);
+}
+.gallery figure:hover {
+  box-shadow: 0 8px 18px #957fac88;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 4vw;
+  background: #1a1224e6;
+  cursor: zoom-out;
+}
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 8px;
+  animation: zoom 0.25s ease;
+}
+.lb-close {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 2.6rem;
+  cursor: pointer;
+}
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+/* ==========================================================================
+   8. BACK-TO-TOP, FOOTER, FOCUS OUTLINE
+   ========================================================================== */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-purple);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 6px 14px #0003;
+}
+.to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.to-top:hover {
+  background: var(--color-maroon);
+  transform: translateY(-4px);
+}
+.foot {
+  text-align: center;
+  padding: 30px 16px 40px;
+  font-size: 0.85rem;
+  color: var(--color-purple-dark);
+}
+:focus-visible {
+  outline: 3px solid var(--color-maroon);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE  (tablet/phone) - grouped in the same order as the page
+   ========================================================================== */
+@media (max-width: 720px) {
+  /* Folder, paper, bookmarks, tabs */
+  .folder-body {
+    grid-template-columns: 1fr 34px;
+  }
+  .folder-body::before {
+    border-radius: 0 40px 34px 34px;
+  }
+  .paper {
+    margin: 70px 0 16px 10px;
+    padding: 16px 12px 30px;
+    border-radius: 28px;
+  }
+  .view {
+    gap: 44px;
+  }
+  .bookmarks {
+    margin-top: 100px;
+  }
+  .bookmarks ul {
+    gap: 10px;
+  }
+  .bookmarks a {
+    min-height: 96px;
+    font-size: 0.78rem;
+    padding: 12px 0;
+    border-radius: 0 14px 14px 0;
+  }
+  .tabs {
+    --tab-extra: 32px;
+  }
+  .tab {
+    padding: 12px 22px 10px;
+  }
+  .tab:not(.active):hover {
+    padding-top: 16px;
+  }
+  .tab.active {
+    padding-top: 22px;
+  }
+
+  /* Shared: avatars, entry rows, headings */
+  .avatar {
+    width: 90px;
+    height: 90px;
+  }
+  .entry {
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+  }
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  /* Summary */
+  .intro {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .avatar-sq {
+    width: 200px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1;
+  }
+  .field {
+    width: 100%;
+    grid-template-columns: 6.5rem 1fr;
+  }
+  .field b {
+    font-size: 1.4rem;
+  }
+
+  /* Education */
+  #education h3 {
+    font-size: 1.3rem;
+  }
+  #education .entry {
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+  }
+  #education .avatar {
+    width: 90px;
+    height: 90px;
+  }
+  #education .card {
+    padding: 40px 20px 28px;
+    box-shadow: 0 14px 0 var(--color-purple);
+  }
+  #education .card:hover {
+    box-shadow: 0 14px 0 var(--color-purple);
+  }
+
+  /* Experience */
+  #experience > .label {
+    margin-left: 24px;
+    font-size: 1.3rem;
+  }
+  .job {
+    --c: 60px;
+    grid-template-columns: 90px 1fr 32px;
+    gap: 12px;
+  }
+  .job .avatar {
+    width: 90px;
+    height: 90px;
+  }
+  .job > div {
+    padding-right: 42px;
+  }
+  .job h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .job .pills {
+    gap: 8px;
+    margin: 6px 0 10px;
+  }
+  .job .pills span {
+    font-size: 0.8rem;
+    padding: 3px 14px;
+  }
+  .job .bullets {
+    font-size: 0.9rem;
+  }
+
+  /* Projects */
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .project h3 {
+    font-size: 1.3rem;
+  }
+  #projects > .label {
+    padding: 0 48px 0 32px;
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 440px) {
+  /* Experience + entry rows stack vertically */
+  .job,
+  .entry,
+  #education .entry {
+    grid-template-columns: 1fr;
+  }
+  .job {
+    padding: 36px 18px 22px;
+  }
+  .job > div {
+    padding-right: 0;
+  }
+  .job .spark {
+    display: none;
+  }
+
+  /* Art gallery */
+  .gallery {
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+/* Respect "reduce motion" system setting */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   10. PAPER-TEXTURE PAGE BACKGROUND  (static, no animation)
+   --------------------------------------------------------------------------
+   The texture image comes from the "Foil Stamping Effect" CodePen by Wakana Y.K.
+   https://codepen.io/wakana-k/pen/BavmMoO  (Copyright (c) 2023 by Wakana Y.K.)
+   Found via Vladimir (https://freefrontend.com/about-me/) at
+   https://freefrontend.com/css-animated-backgrounds/
+   The image is hot-linked from Unsplash, so an internet connection is needed.
+   To use your own texture, replace the url(...) below with e.g. url("port/paper.jpg").
+   ========================================================================== */
+#page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* stays behind the whole page */
+  pointer-events: none;
+  background-color: var(--bg-body); /* shown if the image can't load */
+  background-image: url(https://images.unsplash.com/photo-1615800098779-1be32e60cca3?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTUyNDAwMTN8&ixlib=rb-4.0.3&q=85);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

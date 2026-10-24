@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Raeanne Alexa's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      I used a paper-texture background (static). 
+      The texture from "Foil Stamping Effect" at https://codepen.io/wakana-k/pen/BavmMoO
+      Copyright (c) 2023 by Wakana Y.K.
+      Found via Vladimir (https://freefrontend.com/about-me/) at
+      https://freefrontend.com/css-animated-backgrounds/
+      Styles: section 10 of styles.css
+    -->
+    <div id="page-bg"></div>
+
+    <!-- ================= ICONS AT THE TOP ================= -->
+    <header class="socials">
+      <a
+        href="https://www.facebook.com/alexa.ravida"
+        target="_blank"
+        aria-label="Facebook"
+        class="icon"
+        >f</a
+      >
+      <a
+        href="mailto:raeannermavida@gmail.com"
+        target="_blank"
+        aria-label="Email"
+        class="icon"
+        ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.4l-10 6.6L2 5.9zM2 7.6l9.4 6.2a1 1 0 0 0 1.2 0L22 7.6v10.9a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5z"
+          /></svg
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/ravida-raeanne-alexa-m-a55a2a333/"
+        target="_blank"
+        aria-label="LinkedIn"
+        class="icon"
+        >in</a
+      >
+    </header>
+
+    <main class="folder" id="top">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-view="about" role="tab">
+          About Me
+        </button>
+        <button class="tab" data-view="art" role="tab">My Art</button>
+      </div>
+
+      <div class="folder-body">
+        <div class="paper">
+          <!-- ================= ABOUT ME ================= -->
+
+          <!-- SUMMARY -->
+          <div class="view" id="view-about">
+            <section class="block frame" id="summary">
+              <h2 class="label label-center">Hello! I am,</h2>
+              <div class="card intro">
+                <img class="ph avatar-sq" src="port/alexa.jpg" alt="Profile" />
+                <div>
+                  <p class="field">
+                    <b>NAME:</b> <span>Raeanne Alexa M. Ravida</span>
+                  </p>
+                  <p class="field">
+                    <b>EMAIL:</b> <span>raeannermavida@gmail.com</span>
+                  </p>
+                  <p class="bio">
+                    An Information Technology student with
+                    <em>a creative edge</em>. Experienced in client
+                    communication, digital creation, project coordination, and
+                    administrative support. Detail-oriented and adaptable, with
+                    <em>strong communication skills</em> and the ability to
+                    manage tasks independently while meeting deadlines
+                    <em>to develop visual and user-focused solutions.</em>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="block frame" id="education">
+              <h2 class="label">Education</h2>
+              <div class="card stack">
+                <article class="entry">
+                  <img class="ph avatar" src="port/pup.png" alt="PUP" />
+                  <div>
+                    <h3>Polytechnic University of the Philippines</h3>
+                    <ul class="dots">
+                      <li>
+                        <span class="muted"
+                          >Sta. Mesa Manila &bull; 2024 &ndash; Present</span
+                        >
+                      </li>
+                      <li>
+                        Bachelor in Information Technology<br /><span
+                          class="muted"
+                          >Awards:</span
+                        >
+                        President's Lister
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+                <article class="entry">
+                  <img class="ph avatar" src="port/cjps.png" alt="CJPS" />
+                  <div>
+                    <h3>Child Jesus of Prague School</h3>
+                    <ul class="dots">
+                      <li>
+                        <span class="muted">Binangonan, Rizal &bull; 2024</span>
+                      </li>
+                      <li>
+                        STEM Strand<br /><span class="muted">Awards:</span> With
+                        Honors
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="block" id="experience">
+              <h2 class="label">Experience</h2>
+              <div class="stack-gap">
+                <article class="job">
+                  <img class="ph avatar" src="port/bg.png" alt="My art" />
+                  <div>
+                    <h3>Graphic Artist</h3>
+                    <p class="pills">
+                      <span>Freelancer</span
+                      ><span>July 2022 &ndash; Present</span>
+                    </p>
+                    <ul class="bullets">
+                      <li>
+                        Designed custom materials including advertisements,
+                        printables, and branding assets.
+                      </li>
+                      <li>
+                        Created accurate and expressive character designs based
+                        on client requirements and creative direction.
+                      </li>
+                      <li>
+                        Managed end-to-end client communications and feedback
+                        loops, achieving repeat clients and positive feedback.
+                      </li>
+                    </ul>
+                  </div>
+                  <span class="spark" aria-hidden="true"></span>
+                </article>
+                <article class="job">
+                  <img class="ph avatar" src="port/ark.png" alt="ARK" />
+                  <div>
+                    <h3>ArcademiTech Research and Knowledge</h3>
+                    <p class="pills">
+                      <span>ARKtist Sublead</span
+                      ><span>October 2025 &ndash; Present</span>
+                    </p>
+                    <ul class="bullets">
+                      <li>
+                        Led concept art, sprite sheet, and asset creation for
+                        ongoing projects.
+                      </li>
+                      <li>
+                        Mentored team members, supporting both technical skill
+                        development and creative growth.
+                      </li>
+                      <li>Maintained consistent visual quality and branding</li>
+                    </ul>
+                  </div>
+                  <span class="spark" aria-hidden="true"></span>
+                </article>
+                <article class="job">
+                  <img class="ph avatar" src="port/gdg.jpg" alt="GDG" />
+                  <div>
+                    <h3>Google Developer Groups</h3>
+                    <p class="pills">
+                      <span>Junior UI/UX Designer</span
+                      ><span>March 2025 &ndash; June 2026</span>
+                    </p>
+                    <ul class="bullets">
+                      <li>
+                        Assisted in hosting study jams and supporting marketing
+                        efforts for projects.
+                      </li>
+                      <li>
+                        Coordinated project plans and activities across team
+                        members to support project execution.
+                      </li>
+                      <li>
+                        Collaborated with team members and mentored UI/UX cadet
+                        designers.
+                      </li>
+                    </ul>
+                  </div>
+                  <span class="spark" aria-hidden="true"></span>
+                </article>
+              </div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section class="block frame" id="projects">
+              <h2 class="label">Projects</h2>
+              <div class="grid-2">
+                <article class="card project">
+                  <h3>Code White <span class="badge">Deployed</span></h3>
+                  <ul class="bullets">
+                    <li>
+                      Collaborated with a team to develop Code White, a game
+                      featured at the Philippine GameDev Expo.
+                    </li>
+                    <li>
+                      Designed the game's concepts, characters, and map design,
+                      contributing to its overall visual direction.
+                    </li>
+                    <li>
+                      Produced final storyboard artwork and visual assets to
+                      communicate the game's environments, and narrative.
+                    </li>
+                  </ul>
+                  <p class="pills small">
+                    <span>Philippine GameDev Expo</span><span>Unity</span>
+                  </p>
+                  <a
+                    class="link"
+                    href="https://arkorg.itch.io/code-white"
+                    target="_blank"
+                    rel="noopener"
+                    >Live Demo</a
+                  >
+                </article>
+                <article class="card project">
+                  <h3>
+                    Claim Form Database System
+                    <span class="badge">Deployed</span>
+                  </h3>
+                  <ul class="bullets">
+                    <li>
+                      Collaborated with a team to analyze relational data
+                      structures and implement data constraints.
+                    </li>
+                    <li>
+                      Developed a web application connected to a MySQL database
+                      to digitize and manage estate claim information.
+                    </li>
+                  </ul>
+                  <p class="pills small">
+                    <span>Sun Life Estate Claim Form</span><span>PHP</span
+                    ><span>Java</span>
+                  </p>
+                  <a class="link" href="#" target="_blank" rel="noopener"
+                    >Document</a
+                  ><!-- No link yet -->
+                </article>
+              </div>
+            </section>
+
+            <!-- CERTIFICATIONS -->
+            <section class="block" id="certs">
+              <h2 class="label">Certifications</h2>
+              <div class="card certs">
+                <article class="entry slim">
+                  <img class="ph avatar" src="port/tesda.jpg" alt="TESDA" />
+                  <div>
+                    <h3>
+                      National Certificate II in Computer Systems Servicing
+                    </h3>
+                    <p class="pills small">
+                      <span>TESDA</span><span>2026</span>
+                    </p>
+                  </div>
+                </article>
+                <article class="entry slim">
+                  <img class="ph avatar" src="port/cisco.jpg" alt="CISCO" />
+                  <div>
+                    <h3>Networking Basics</h3>
+                    <p class="pills small">
+                      <span>PUP &amp; CISCO NetAcad</span><span>2026</span>
+                    </p>
+                  </div>
+                </article>
+                <article class="entry slim">
+                  <img class="ph avatar" src="port/arduino.jpg" alt="Arduino" />
+                  <div>
+                    <h3>Arduino Day Philippines</h3>
+                    <p class="pills small"><span>2026</span></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+
+          <!-- ================= MY ART ================= -->
+          <div class="view" id="view-art" hidden>
+            <section class="block frame">
+              <h2 class="label label-center">
+                Sample Illustrations From 2024 &ndash; 2026
+              </h2>
+              <div class="card gallery">
+                <!-- Replace each src (and alt) with your artwork; keep data-full to use a larger version in the lightbox if you like -->
+                <figure id="body">
+                  <img
+                    class="ph"
+                    src="port/art/1.png"
+                    alt="Body illustration 1"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="ph"
+                    src="port/art/2.png"
+                    alt="Body illustration 2"
+                  />
+                </figure>
+                <figure id="chibi">
+                  <img
+                    class="ph"
+                    src="port/art/3.png"
+                    alt="Chibi illustration 1"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="ph"
+                    src="port/art/4.png"
+                    alt="Chibi illustration 2"
+                  />
+                </figure>
+                <figure id="sheet" class="wide">
+                  <img
+                    class="ph"
+                    src="port/art/5.png"
+                    alt="Sheet Illustration 1"
+                  />
+                </figure>
+                <figure id="background">
+                  <img
+                    class="ph"
+                    src="port/art/6.png"
+                    alt="Sheet illustration 2"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="ph"
+                    src="port/art/7.png"
+                    alt="Sheet illustration 3"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="ph"
+                    src="port/art/8.png"
+                    alt="Background illustration 1"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    class="ph"
+                    src="port/art/9.png"
+                    alt="Background illustration 2"
+                  />
+                </figure>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Bookmarks (navigation) -->
+        <nav class="bookmarks" aria-label="Sections">
+          <ul id="nav-about">
+            <li><a href="#summary" class="c-sage">Summary</a></li>
+            <li><a href="#education" class="c-gold">Education</a></li>
+            <li><a href="#experience" class="c-rust">Experience</a></li>
+            <li><a href="#projects" class="c-pink">Projects</a></li>
+            <li><a href="#certs" class="c-blue">Certs.</a></li>
+          </ul>
+          <ul id="nav-art" hidden>
+            <li><a href="#body" class="c-sage">Body</a></li>
+            <li><a href="#chibi" class="c-gold">Chibi</a></li>
+            <li><a href="#sheet" class="c-rust">Sheet</a></li>
+            <li><a href="#background" class="c-pink">Background</a></li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="foot"><p>&copy; 2026 Raeanne Alexa M. Ravida</p></footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-close" aria-label="Close">&times;</button>
+      <img alt="" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
